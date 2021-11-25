@@ -6,7 +6,7 @@
 /*   By: bbordere <bbordere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 15:23:33 by bbordere          #+#    #+#             */
-/*   Updated: 2021/11/23 15:35:18 by bbordere         ###   ########.fr       */
+/*   Updated: 2021/11/25 16:05:10 by bbordere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	*ft_memchr(const void *s, int c, size_t n)
 {
 	unsigned char	*ptr;
-	size_t		i;
+	size_t			i;
 
 	ptr = (unsigned char *)s;
 	i = 0;

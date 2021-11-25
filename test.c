@@ -1,16 +1,35 @@
 #include "libft.h"
 #include <string.h>
 #include <stdio.h>
+#include <ctype.h>
 
-char	f(unsigned int i, char c)
+
+static int	ft_words_count(char const *str, char sep)
 {
-	return(c + i);
+	size_t	i;
+	int		word;
+
+	i = 0;
+	word = 0;
+	while (str[i])
+	{		
+		while (str[i] == sep && str[i])
+			i++;
+		word++;
+		while (str[i] != sep && str[i])
+			i++;
+	}
+	if (str[i - 1] == sep)
+		word--;
+	return (word);
 }
 
 int main()
 {
-	char test[] = "ceci est un test";
-	char *mp;
-	mp = ft_strmapi(test, f);
-	printf("%s", mp);
+	char str[] = "     ceci est un tes    t     ";
+	char c = ' ';
+	char **tab = ft_split(str, c);
+	for(int i=0;i < ft_words_count(str, c);i++)
+		printf("%s\n",tab[i]);
+	
 }
