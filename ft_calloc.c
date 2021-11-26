@@ -6,7 +6,7 @@
 /*   By: bbordere <bbordere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 16:39:28 by bbordere          #+#    #+#             */
-/*   Updated: 2021/11/23 16:54:14 by bbordere         ###   ########.fr       */
+/*   Updated: 2021/11/26 14:06:47 by bbordere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	*ft_calloc(size_t count, size_t size)
 
 	i = 0;
 	alloc = malloc(count * size);
-	if (!alloc)
+	if (!alloc || !count || !size)
 		return (NULL);
 	while (i < count)
 	{

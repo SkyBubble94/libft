@@ -6,7 +6,7 @@
 /*   By: bbordere <bbordere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 12:34:32 by bbordere          #+#    #+#             */
-/*   Updated: 2021/11/24 14:38:11 by bbordere         ###   ########.fr       */
+/*   Updated: 2021/11/26 14:33:05 by bbordere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	size_t	i;
 	char	*str;
 
-	str = malloc(ft_strlen(s1) + 1 * sizeof(char *));
+	str = malloc((ft_strlen(s1) + 1) * sizeof(char));
 	if (!str)
 		return (NULL);
 	i = 0;

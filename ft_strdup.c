@@ -6,7 +6,7 @@
 /*   By: bbordere <bbordere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 16:54:58 by bbordere          #+#    #+#             */
-/*   Updated: 2021/11/25 16:01:36 by bbordere         ###   ########.fr       */
+/*   Updated: 2021/11/26 14:27:16 by bbordere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*ft_strdup(const char *source)
 	char	*dest;
 	size_t	i;
 
-	dest = malloc((ft_strlen(source) + 1) * sizeof(char *));
+	dest = malloc((ft_strlen(source) + 1) * sizeof(char));
 	if (!dest)
 		return (NULL);
 	i = 0;

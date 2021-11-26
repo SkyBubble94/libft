@@ -6,7 +6,7 @@
 /*   By: bbordere <bbordere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 14:30:11 by bbordere          #+#    #+#             */
-/*   Updated: 2021/11/23 15:16:39 by bbordere         ###   ########.fr       */
+/*   Updated: 2021/11/26 15:31:56 by bbordere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,14 @@ char	*ft_strrchr(const char *str, int c)
 	char	*s;
 
 	s = (char *)str;
-	if ((char) c == '\0')
+	if (*s == '\0')
+		return (NULL);
+	if (c == '\0')
 		return (ft_strchr(str, '\0'));
-	while (ft_strchr(s, (char) c) != NULL)
+	while (ft_strchr(s, c) != NULL)
 	{
-		ptr = ft_strchr(s, (char) c);
+		ptr = ft_strchr(s, c);
 		s = ptr + 1;
 	}
-	return ((char *) ptr);
+	return (ptr);
 }

@@ -6,7 +6,7 @@
 /*   By: bbordere <bbordere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 15:02:02 by bbordere          #+#    #+#             */
-/*   Updated: 2021/11/25 10:04:05 by bbordere         ###   ########.fr       */
+/*   Updated: 2021/11/26 15:34:26 by bbordere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	while (n-- > 0)
+	while (n--)
 	{
 		if (*s1 != *s2)
 			return (*s1 - *s2);

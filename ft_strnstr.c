@@ -6,7 +6,7 @@
 /*   By: bbordere <bbordere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 16:22:06 by bbordere          #+#    #+#             */
-/*   Updated: 2021/11/24 12:00:06 by bbordere         ###   ########.fr       */
+/*   Updated: 2021/11/26 15:32:35 by bbordere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*ft_strnstr(const char	*haystack, const char *needle, size_t n)
 	char	*start;
 	char	*j;
 
-	if (needle[0] == '\0' || needle == 0)
+	if (*needle == '\0' || !needle)
 		return ((char *) haystack);
 	while (*haystack && n)
 	{
@@ -35,5 +35,5 @@ char	*ft_strnstr(const char	*haystack, const char *needle, size_t n)
 		haystack = start + 1;
 		n--;
 	}
-	return (0);
+	return (NULL);
 }
