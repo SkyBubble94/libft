@@ -6,18 +6,20 @@
 /*   By: bbordere <bbordere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 12:55:03 by bbordere          #+#    #+#             */
-/*   Updated: 2021/11/24 16:05:05 by bbordere         ###   ########.fr       */
+/*   Updated: 2021/11/26 14:17:16 by bbordere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_count_numbers(int n)
+static int	ft_number_size(int n)
 {
 	int	i;
 
 	i = 0;
-	while (n / 10)
+	if (n <= 0)
+		i++;
+	while (n != 0)
 	{
 		i++;
 		n /= 10;
@@ -44,29 +46,28 @@ static void	ft_strrev(char *str)
 
 char	*ft_itoa(int n)
 {
-	char	*str;
-	size_t	i;
-	int		s;
+	char			*str;
+	int				i;
+	unsigned int	nb;
 
-	if (n < 0)
-	{
-		str = malloc((ft_count_numbers(-n) + 2) * sizeof(char *));
-		s = -1;
-		n = -n;
-	}
-	else
-		str = malloc((ft_count_numbers(n) + 1) * sizeof(char *));
+	i = 0;
+	nb = (unsigned) n;
+	str = malloc((ft_number_size(n) + 1) * sizeof(char));
 	if (!str)
 		return (NULL);
-	i = 0;
-	while (n > 0)
+	str[ft_number_size(n)] = '\0';
+	if (n < 0)
 	{
-		str[i++] = (n % 10) + '0';
-		n /= 10;
+		nb = -nb;
+		str[ft_number_size(n) - 1] = '-';
 	}
-	if (s < 0)
-		str[i] = '-';
+	else if (nb == 0)
+		str[ft_number_size(n) - 1] = '0';
+	while (nb != 0)
+	{		
+		str[i++] = nb % 10 + '0';
+		nb /= 10;
+	}
 	ft_strrev(str);
-	str[ft_strlen(str)] = '\0';
 	return (str);
 }
