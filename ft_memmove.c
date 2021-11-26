@@ -1,33 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bbordere <bbordere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/24 16:34:40 by bbordere          #+#    #+#             */
-/*   Updated: 2021/11/26 09:55:45 by bbordere         ###   ########.fr       */
+/*   Created: 2021/11/26 10:09:54 by bbordere          #+#    #+#             */
+/*   Updated: 2021/11/26 10:37:16 by bbordere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+void	*ft_memmove(void *dst, const void *src, size_t n)
 {
-	size_t	i;
-	char	*str;
+	unsigned char	*s;
+	unsigned char	*dest;
+	size_t			i;
 
-	if (!s || !f)
+	if (!dst || !src)
 		return (NULL);
-	str = ft_strdup(s);
-	if (!str)
-		return (NULL);
+	s = (unsigned char *) src;
+	dest = (unsigned char *) dst;
 	i = 0;
-	while (str[i])
+	if (dest < s)
 	{
-		str[i] = f(i, s[i]);
-		i++;
+		while (i < n)
+		{
+			dest[i] = s[i];
+			i++;
+		}		
 	}
-	str[i] = '\0';
-	return (str);
+	else
+		ft_memcpy(dest, s, n);
+	return (dest);
 }
