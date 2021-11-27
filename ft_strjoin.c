@@ -23,8 +23,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	s3 = malloc((lens1 + lens2 + 1) * sizeof(char));
 	if (!s3 || !s1 || !s2)
 		return (NULL);
-	ft_strlcpy(s3, s1, lens1);
-	ft_strlcat(s3, s2, lens1 + lens2 + 1);
+	ft_strlcpy(s3, s1, lens1 + 1);
+	ft_strlcat(s3, s2, lens1 + lens2 + 2);
 	s3[lens1 + lens2] = '\0';
 	return (s3);
 }
