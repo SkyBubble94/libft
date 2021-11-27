@@ -12,42 +12,25 @@
 
 #include "libft.h"
 
-static int	ft_isincharset(char c, const char *charset)
-{
-	while (*charset)
-	{
-		if (*charset == c)
-			return (1);
-		charset++;
-	}
-	return (0);
-}
-
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	size_t	i;
-	char	*str;
+	size_t		end;
+	size_t		start;
+	char		*str;
+	char		*src;
 
-	str = malloc((ft_strlen(s1) + 1) * sizeof(char));
-	if (!str)
+	if (!s1 || !set)
 		return (NULL);
-	i = 0;
-	while (ft_isincharset(*s1, set))
-		s1++;
-	while (*s1)
+	start = 0;
+	src = (char *) s1;
+	while (*src && ft_strchr(set, *src))
 	{
-		str[i] = *s1;
-		i++;
-		s1++;
+		start++;
+		src++;
 	}
-	str[i] = '\0';
-	s1--;
-	i--;
-	while (ft_isincharset(*s1, set))
-	{
-		str[i] = '\0';
-		i--;
-		s1--;
-	}
+	end = ft_strlen(src);
+	while (end && ft_strrchr(set, src[end]))
+		end--;
+	str = ft_substr(s1, start, end + 1);
 	return (str);
 }
