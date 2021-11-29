@@ -1,34 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bbordere <bbordere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/23 16:22:06 by bbordere          #+#    #+#             */
-/*   Updated: 2021/11/29 12:17:24 by bbordere         ###   ########.fr       */
+/*   Created: 2021/11/29 13:55:39 by bbordere          #+#    #+#             */
+/*   Updated: 2021/11/29 14:06:37 by bbordere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *str, const char *to_find, size_t len)
+void	ft_lstadd_front(t_list **alst, t_list *new)
 {
-	size_t	i;
-	size_t	j;
-
-	if (!*to_find)
-		return ((char *)str);
-	i = 0;
-	while (str[i] && i < len)
-	{
-		j = 0;
-		while (to_find[j] && str[i + j] && str[i + j] == to_find[j]
-			&& (i + j) < len)
-			j++;
-		if (!to_find[j])
-			return ((char *)str + i);
-		i++;
-	}
-	return (NULL);
+	if (*alst)
+		new -> next = *alst;
+	*alst = new;
 }

@@ -6,7 +6,7 @@
 /*   By: bbordere <bbordere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/26 10:09:54 by bbordere          #+#    #+#             */
-/*   Updated: 2021/11/26 10:37:16 by bbordere         ###   ########.fr       */
+/*   Updated: 2021/11/29 10:17:49 by bbordere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,13 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	source = (char *)src;
 	dest = (char *)dst;
 	if (dest > source)
+	{
 		while (len > 0)
 		{
 			len--;
-			dest[len] = source[len];			
+			dest[len] = source[len];
 		}
+	}
 	else
 		ft_memcpy(dest, source, len);
 	return (dest);

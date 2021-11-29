@@ -6,7 +6,7 @@
 /*   By: bbordere <bbordere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 13:16:14 by bbordere          #+#    #+#             */
-/*   Updated: 2021/11/26 14:32:43 by bbordere         ###   ########.fr       */
+/*   Updated: 2021/11/29 12:14:58 by bbordere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		i++;
 		j++;
 	}
-	while (i < sizeof(substr))
+	while (i < len)
 	{
 		substr[i] = '\0';
 		i++;

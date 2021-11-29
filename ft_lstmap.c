@@ -1,34 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bbordere <bbordere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/23 16:22:06 by bbordere          #+#    #+#             */
-/*   Updated: 2021/11/29 12:17:24 by bbordere         ###   ########.fr       */
+/*   Created: 2021/11/29 15:01:13 by bbordere          #+#    #+#             */
+/*   Updated: 2021/11/29 15:44:39 by bbordere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *str, const char *to_find, size_t len)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	size_t	i;
-	size_t	j;
+	t_list	*m;
+	t_list	*start;
 
-	if (!*to_find)
-		return ((char *)str);
-	i = 0;
-	while (str[i] && i < len)
+	if (!lst || !(*f) || !(*del))
+		return (NULL);
+	start = ft_lstnew(NULL);
+	m = start;
+	while (lst -> next)
 	{
-		j = 0;
-		while (to_find[j] && str[i + j] && str[i + j] == to_find[j]
-			&& (i + j) < len)
-			j++;
-		if (!to_find[j])
-			return ((char *)str + i);
-		i++;
+		m -> next = ft_lstnew((*f)(lst));
+		m = m -> next;
+		lst = lst -> next;
 	}
-	return (NULL);
+	m = start -> next;
+	ft_lstdelone(start, del);
+	return (m);
 }

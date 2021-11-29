@@ -6,7 +6,7 @@
 /*   By: bbordere <bbordere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 14:23:23 by bbordere          #+#    #+#             */
-/*   Updated: 2021/11/25 16:49:32 by bbordere         ###   ########.fr       */
+/*   Updated: 2021/11/29 12:33:26 by bbordere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ char	**ft_split(char const *s, char c)
 	{
 		while (s[p] == c && s[p])
 			p++;
-		res[i] = malloc((ft_word_len(s, c, p) + 1) * sizeof(char *));
+		res[i] = malloc((ft_word_len(s, c, p) + 1) * sizeof(char));
 		if (!res[i])
 			return (NULL);
 		res[i] = ft_substr(s, p, ft_word_len(s, c, p));
