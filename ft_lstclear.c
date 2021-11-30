@@ -6,7 +6,7 @@
 /*   By: bbordere <bbordere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 14:39:26 by bbordere          #+#    #+#             */
-/*   Updated: 2021/11/29 14:44:17 by bbordere         ###   ########.fr       */
+/*   Updated: 2021/11/30 16:07:53 by bbordere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,18 @@
 
 void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
+	t_list *m;
+	t_list	*temp;
+
+	m = *lst;
 	if (lst && del)
 	{
-		while ((*lst)-> next)
+		while (m)
 		{
-			ft_lstdelone(*lst, del);
-			*lst = (*lst)-> next;
+			temp = m -> next;
+			ft_lstdelone(m, del);
+			m = temp;
 		}
+		*lst = NULL;
 	}
 }

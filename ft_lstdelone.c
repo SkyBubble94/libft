@@ -6,7 +6,7 @@
 /*   By: bbordere <bbordere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 14:28:08 by bbordere          #+#    #+#             */
-/*   Updated: 2021/11/29 14:39:20 by bbordere         ###   ########.fr       */
+/*   Updated: 2021/11/30 15:46:52 by bbordere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	ft_lstdelone(t_list *lst, void (*del)(void*))
 {
-	if (lst && (*del))
+	if (lst && del)
 	{
-		(*del)(lst -> content);
+		(del)(lst -> content);
 		free(lst);
 	}
 }
