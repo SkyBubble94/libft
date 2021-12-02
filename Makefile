@@ -8,25 +8,27 @@ CFLAGS = -Wall -Wextra -Werror
 
 OBJ = ${SRCS:.c=.o}
 
-B_OBJS = ${B_SRCS:.c=.o}
+B_OBJ = ${B_SRCS:.c=.o}
 
 NAME = libft.a
 
 $(NAME): ${OBJ}
 	ar rc ${NAME} ${OBJ}
 
-bonus: ${B_OBJS}
-	ar rc ${NAME} ${B_OBJS}
+bonus: ${OBJ} ${B_OBJ} 
+	ar rc ${NAME} ${OBJ} ${B_OBJ}
 
 all: $(NAME)
 
 clean:
 	rm -f ${OBJ}
-	rm -f ${B_OBJS}
+	rm -f ${B_OBJ}
 
 fclean : clean
 	rm -f $(NAME)
 
 re: fclean all
 
-.PHONY: all clean fclean re bonus
+re_bonus: fclean bonus
+
+.PHONY: all clean fclean re bonus re_bonus
